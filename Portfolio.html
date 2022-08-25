@@ -33,6 +33,8 @@
         </nav>
     </header>
 
+    <!--Container for scroll snapping-->
+    <container class="scroll-snap">
     <!--Intro, id to reference in nav, "--" indicates modifier-->
     <section class="intro" id="home">
         <h1 class="section__title section__title--intro">
@@ -41,6 +43,11 @@
         <p class="section__subtitle section__subtitle--intro">Welcome to my game dev portfolio</p>
         <img src="img\pexels-thisisengineering-3861972.jpg" alt="home img" class="intro__img">
 
+    </section>
+
+    <!--Settings section-->
+    <section class="settings" id="settings">
+        <button id="theme-toggle" class="theme-toggle btn" aria-label="Toggle Light/Dark Mode">Light/Dark<i class="fa-solid fa-lightbulb"></i></button>
     </section>
 
     <!--About Me-->
@@ -71,6 +78,7 @@
             </a>
         </div>
     </section>
+    </container>
 
     <!--Footer-->
     <footer class="footer">
@@ -86,6 +94,7 @@
     </footer>
 
     <script src="js\index.js"></script>
+    <script src="js\darkmode.js"></script>
 
 </body>
 </html>
