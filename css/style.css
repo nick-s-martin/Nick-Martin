@@ -97,7 +97,7 @@ background: var(--clr-accent);
 color: var(--clr-contrast);
 text-decoration: none;
 cursor: pointer;
-font-size: .8rem;
+font-size: var(--fs-body);
 text-transform: uppercase;
 letter-spacing: 2px;
 font-weight: var(--fw-bold);
@@ -105,6 +105,32 @@ transition: transform 200ms ease-in-out;
 }
 .btn:hover{
     transform: scale(1.1);
+}
+
+/*Radio*/
+.radio{
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 1.5em;
+    box-shadow: var(--bs);
+}
+
+.radio__input{
+    display: none;
+}
+
+.radio__label{
+    padding: .5em 1.5em;
+    font-size: var(--fs-body);
+    font-family: var(--ff-primary);
+    background: var(--clr-contrast);
+    color: var(--clr-primary);
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.radio__input:checked + .radio__label{
+    background: var(--clr-accent);
 }
 
 

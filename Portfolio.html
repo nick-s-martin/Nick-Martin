@@ -47,7 +47,15 @@
 
     <!--Settings section-->
     <section class="settings" id="settings">
-        <button id="theme-toggle" class="theme-toggle btn" aria-label="Toggle Light/Dark Mode">Light/Dark<i class="fa-solid fa-lightbulb"></i></button>
+        <div class="radio">
+            <input type="radio" class="radio__input theme-toggle" value="light" name="theme-toggle" id="theme-toggle-light">
+            <label class="radio__label" for="theme-toggle-light">Light</label>
+            <input type="radio" class="radio__input theme-toggle" value="dark" name="theme-toggle" id="theme-toggle-dark">
+            <label class="radio__label" for="theme-toggle-dark">Dark</label>
+            <!--<button id="theme-toggle" class="theme-toggle btn" aria-label="Toggle Light/Dark Mode">Light/Dark<i class="fa-solid fa-lightbulb"></i></button>
+            -->
+        </div>
+        
     </section>
 
     <!--About Me-->
