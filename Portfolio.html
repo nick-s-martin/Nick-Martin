@@ -48,12 +48,30 @@
     <!--Settings section-->
     <section class="settings" id="settings">
         <div class="radio">
-            <input type="radio" class="radio__input theme-toggle" value="light" name="theme-toggle" id="theme-toggle-light">
-            <label class="radio__label" for="theme-toggle-light">Light</label>
-            <input type="radio" class="radio__input theme-toggle" value="dark" name="theme-toggle" id="theme-toggle-dark">
-            <label class="radio__label" for="theme-toggle-dark">Dark</label>
-            <!--<button id="theme-toggle" class="theme-toggle btn" aria-label="Toggle Light/Dark Mode">Light/Dark<i class="fa-solid fa-lightbulb"></i></button>
-            -->
+            <li class="radio__item">
+                <input type="radio" class="radio__input theme-toggle" value="light" name="theme-toggle" id="theme-toggle-light" aria-label="Toggle Light Theme">
+                <label class="radio__label" for="theme-toggle-light">Light</label>
+            </li>
+            <li class="radio__item">
+                <input type="radio" class="radio__input theme-toggle" value="dark" name="theme-toggle" id="theme-toggle-dark" aria-label="Toggle Dark Theme">
+                <label class="radio__label" for="theme-toggle-dark">Dark</label>
+                <div aria-hidden="true" class="radio__marker"></div>
+            </li>
+        </div>
+
+        <div class="radio">
+            <li class="radio__item">
+                <input type="radio" class="radio__input text-size" value="small" name="text-size" id="text-size__small" aria-label="Set Text To Small">
+                <label class="radio__label" for="text-size__small">Small</label>
+            </li><li class="radio__item">
+                <input type="radio" class="radio__input text-size" value="medium" name="text-size" id="text-size__medium" aria-label="Set Text To Medium">
+                <label class="radio__label" for="text-size__medium">Medium</label>
+            </li>
+            <li class="radio__item">
+                <input type="radio" class="radio__input text-size" value="big" name="text-size" id="text-size__big" aria-label="Set Text To Medium">
+                <label class="radio__label" for="text-size__big">Big</label>
+                <div aria-hidden="true" class="radio__marker"></div>
+            </li>
         </div>
         
     </section>

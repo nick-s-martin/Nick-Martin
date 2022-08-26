@@ -34,6 +34,12 @@
     /*Defining box shadow*/
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
     0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
+   
+    --radio-width: 186px;
+    --radio-height: 46px;
+    --radio-padding: 3px;
+    --radio-radius: 50em;
+    --radio-animation-duration: 0.3s;
 
 }
 
@@ -108,30 +114,76 @@ transition: transform 200ms ease-in-out;
 }
 
 /*Radio*/
-.radio{
+.radio {
+    position: relative;
+    display: inline-block;
     display: inline-flex;
-    overflow: hidden;
-    border-radius: 1.5em;
+    padding: var(--radio-padding);
+    border-radius: calc(var(--radio-radius) * 1.4);
+    background-color: var(--clr-secondary);
+  }
+  .radio:focus-within, .radio:active {
     box-shadow: var(--bs);
-}
-
-.radio__input{
-    display: none;
-}
-
-.radio__label{
-    padding: .5em 1.5em;
-    font-size: var(--fs-body);
-    font-family: var(--ff-primary);
-    background: var(--clr-contrast);
-    color: var(--clr-primary);
+  }
+  
+  .radio__item {
+    position: relative;
+    display: inline-block;
+    height: calc(var(--radio-height) - 2*var(--radio-padding));
+    width: calc(var(--radio-width)*0.5 - var(--radio-padding));
+  }
+  
+  .radio__label {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radio-radius);
     cursor: pointer;
-    transition: background 0.1s;
-}
+    font-size: var(--fs-body);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    transition: all var(--radio-animation-duration);
+  }
 
-.radio__input:checked + .radio__label{
-    background: var(--clr-accent);
-}
+  .radio__input{
+    display: none;
+  }
+
+  .radio__input:checked ~ .radio__label {
+    color: var(--clr-primary);
+  }
+
+  .radio__input:focus ~ .radio__label {
+    background-color: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) * 0.6));
+  }
+  
+  .radio__label :not(*):focus-within, .radio__input:focus ~ .radio__label {
+    background-color: transparent;
+  }
+  
+  .radio__marker {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: -100%;
+    border-radius: var(--radio-radius);
+    background-color: var(--clr-accent);
+    height: calc(var(--radio-height) - 2*var(--radio-padding));
+    width: calc(var(--radio-width)*0.5 - var(--radio-padding));
+    box-shadow: var(--bs);
+    transition: -webkit-transform var(--radio-animation-duration);
+    transition: transform var(--radio-animation-duration);
+    transition: transform var(--radio-animation-duration), -webkit-transform var(--radio-animation-duration);
+  }
+  .radio__input:checked ~ .radio__marker {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
 
 
 /*Typography*/
