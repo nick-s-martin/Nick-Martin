@@ -26,10 +26,10 @@
 
     /*Defining font size*/
     font-size: 16px;
-    --fs-h1: 3rem;
-    --fs-h2: 2.25rem;
-    --fs-h3: 1.25rem;
-    --fs-body: 1rem;
+    --fs-h1: calc(3*var(--fs-base));
+    --fs-h2: calc(2.25*var(--fs-base));
+    --fs-h3: calc(1.25*var(--fs-base));
+    --fs-body:calcvar(--fs-base);
 
     /*Defining box shadow*/
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
@@ -43,6 +43,53 @@
 
 }
 
+.textsmall{
+    --fs-base: 1rem;
+    --fs-h1: calc(3*var(--fs-base));
+    --fs-h2: calc(2.25*var(--fs-base));
+    --fs-h3: calc(1.25*var(--fs-base));
+    --fs-body:calcvar(--fs-base);
+    @media (min-width: 800px) {
+        :root {
+            --fs-h1: calc(4*var(--fs-base));
+            --fs-h2: calc(3.5*var(--fs-base));
+            --fs-h3: calc(1.5*var(--fs-base));
+            --fs-body: calc(1.125*var(--fs-base));
+        }
+    }
+}
+
+.textmedium{
+    --fs-base: 1.25rem;
+    --fs-h1: calc(3*var(--fs-base));
+    --fs-h2: calc(2.25*var(--fs-base));
+    --fs-h3: calc(1.25*var(--fs-base));
+    --fs-body:calcvar(--fs-base);
+    @media (min-width: 800px) {
+        :root {
+            --fs-h1: calc(4*var(--fs-base));
+            --fs-h2: calc(3.5*var(--fs-base));
+            --fs-h3: calc(1.5*var(--fs-base));
+            --fs-body: calc(1.125*var(--fs-base));
+        }
+    }
+}
+.textbig{
+    --fs-base: 1.5rem;
+    --fs-h1: calc(3*var(--fs-base));
+    --fs-h2: calc(2.25*var(--fs-base));
+    --fs-h3: calc(1.25*var(--fs-base));
+    --fs-body:calcvar(--fs-base);
+    @media (min-width: 800px) {
+    :root {
+        --fs-h1: calc(4*var(--fs-base));
+        --fs-h2: calc(3.5*var(--fs-base));
+        --fs-h3: calc(1.5*var(--fs-base));
+        --fs-body: calc(1.125*var(--fs-base));
+    }
+}
+}
+
 .darkmode{
     --clr-primary: var(--clr-dark);
     --clr-secondary: var(--clr-black);
@@ -52,10 +99,10 @@
 
 @media (min-width: 800px) {
     :root {
-        --fs-h1: 4rem;
-        --fs-h2: 3.5rem;
-        --fs-h3: 1.5rem;
-        --fs-body: 1.125rem;
+        --fs-h1: calc(4*var(--fs-base));
+        --fs-h2: calc(3.5*var(--fs-base));
+        --fs-h3: calc(1.5*var(--fs-base));
+        --fs-body: calc(1.125*var(--fs-base));
     }
 }
 
@@ -244,8 +291,8 @@ h3{font-size: var(--fs-h3)}
 
 .nav{
     position: fixed;
-    background: var(--clr-contrast);
-    color: var(--clr-primary);
+    background: var(--clr-secondary);
+    color: var(--clr-contrast);
     top: 0;
     bottom: 0;
     left: 0;
