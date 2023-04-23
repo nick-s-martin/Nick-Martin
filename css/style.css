@@ -49,14 +49,6 @@
     --fs-h2: calc(2.25*var(--fs-base));
     --fs-h3: calc(1.25*var(--fs-base));
     --fs-body:calcvar(--fs-base);
-    @media (min-width: 800px) {
-        :root {
-            --fs-h1: calc(4*var(--fs-base));
-            --fs-h2: calc(3.5*var(--fs-base));
-            --fs-h3: calc(1.5*var(--fs-base));
-            --fs-body: calc(1.125*var(--fs-base));
-        }
-    }
 }
 
 .textmedium{
@@ -65,29 +57,14 @@
     --fs-h2: calc(2.25*var(--fs-base));
     --fs-h3: calc(1.25*var(--fs-base));
     --fs-body:calcvar(--fs-base);
-    @media (min-width: 800px) {
-        :root {
-            --fs-h1: calc(4*var(--fs-base));
-            --fs-h2: calc(3.5*var(--fs-base));
-            --fs-h3: calc(1.5*var(--fs-base));
-            --fs-body: calc(1.125*var(--fs-base));
-        }
-    }
 }
+
 .textbig{
     --fs-base: 1.5rem;
     --fs-h1: calc(3*var(--fs-base));
     --fs-h2: calc(2.25*var(--fs-base));
     --fs-h3: calc(1.25*var(--fs-base));
     --fs-body:calcvar(--fs-base);
-    @media (min-width: 800px) {
-    :root {
-        --fs-h1: calc(4*var(--fs-base));
-        --fs-h2: calc(3.5*var(--fs-base));
-        --fs-h3: calc(1.5*var(--fs-base));
-        --fs-body: calc(1.125*var(--fs-base));
-    }
-}
 }
 
 .darkmode{
@@ -127,7 +104,8 @@ body{
 }
 
 section{
-    padding: 5em 2em;
+    height: 100vh;
+    width: 100vw;
 }
 
 img{
@@ -173,16 +151,19 @@ transition: transform 200ms ease-in-out;
     box-shadow: var(--bs);
   }
   
-  .radio__item {
+  .radio__label::before{
+    content: "";
     position: relative;
     display: inline-block;
+    border-radius: var(--radio-radius);
     height: calc(var(--radio-height) - 2*var(--radio-padding));
-    width: calc(var(--radio-width)*0.5 - var(--radio-padding));
+    width: calc(var(--radio-width)*0.25 - var(--radio-padding));
+    background: var(--clr-primary);
   }
   
   .radio__label {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     height: 100%;
     align-items: center;
@@ -205,19 +186,19 @@ transition: transform 200ms ease-in-out;
     color: var(--clr-primary);
   }
 
-  .radio__input:focus ~ .radio__label {
-    background-color: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) * 0.6));
+  .radio__input1:checked ~ .radio__marker {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
-  
-  .radio__label :not(*):focus-within, .radio__input:focus ~ .radio__label {
-    background-color: transparent;
+
+.radio__input3:checked ~ .radio__marker {
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
   }
-  
-  .radio__marker {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: -100%;
+
+#slider{
+    position:absolute;
+    z-index: 2;
     border-radius: var(--radio-radius);
     background-color: var(--clr-accent);
     height: calc(var(--radio-height) - 2*var(--radio-padding));
@@ -227,11 +208,26 @@ transition: transform 200ms ease-in-out;
     transition: transform var(--radio-animation-duration);
     transition: transform var(--radio-animation-duration), -webkit-transform var(--radio-animation-duration);
   }
-  .radio__input:checked ~ .radio__marker {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
 
+#theme-toggle-light:checked  ~ #slider{
+    left:0;
+}
+
+#theme-toggle-dark:checked  ~ #slider{
+    left:20%;
+}
+
+#text-size-small:checked  ~ #slider{
+    left:0;
+}
+
+#text-size-medium:checked  ~ #slider{
+    left:40%;
+}
+
+#text-size-big:checked  ~ #slider{
+    left:80%;
+}
 
 /*Typography*/
 
@@ -391,12 +387,22 @@ h3{font-size: var(--fs-h3)}
     position: relative;
 }
 
-.intro__img{
-    box-shadow: var(--bs);
+.background{
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-.section__subtitle--intro{
+.background--home{
+    background-color: var(--clr-primary);
+    background-image: url(../inspo/580ed073154d60ee08bd444541810af8.jpg);
+    
+}
+
+.home__item{
     display: inline-block;
+    padding: 1em;
 }
 
 @media (min-width: 800px){
@@ -409,23 +415,6 @@ h3{font-size: var(--fs-h3)}
         "img title"
         "img subtitle";
         grid-template-columns: min-content max-content;
-    }
-
-    .intro__img {
-        grid-area: img;
-        min-width: 350px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .section__subtitle--intro{
-        align-self: start;
-        grid-column: -1/1;
-        grid-row: 2;
-        text-align: right;
-        position: relative;
-        left: -1.5em;
-        width: calc(100% + 1.5em);
     }
 }
 
